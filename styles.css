@@ -39,7 +39,6 @@ body {
   margin: 0;
   font-family: 'Authentic Sans', sans-serif;
   background-color: #ccd1d5;
-  /* compensa el header fijo (ajusta si cambias el alto) */
   padding-top: 92px;
 }
 
@@ -579,22 +578,6 @@ a:hover { color: #666; }
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s;
   will-change: transform;
 }
-
-.contacto-panel:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(0,0,0,.18);
-  border-color: #111;
-}
-
-.contacto-panel::after{
-  content:"";
-  position:absolute;
-  inset:-40% -60%;
-  background: linear-gradient(120deg, transparent 15%, rgba(255,255,255,.35) 50%, transparent 55%);
-  transform: translateX(-120%);
-  transition: transform .6s ease;
-}
-.contacto-panel:hover::after{ transform: translateX(120%); }
 
 @media (prefers-reduced-motion: reduce){
   .contacto-panel, .contacto-panel::after{ transition: none; }
