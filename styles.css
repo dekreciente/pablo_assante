@@ -662,3 +662,89 @@ html.page-leaving main {
   }
 }
 
+
+
+/* === Footer fijo al fondo === */
+.site-footer.fixed {
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%;
+  background: #FFFFC8;
+  border-top: 1px solid #000;
+  color: #111;
+  z-index: 999; /* debajo del header (1000), encima del contenido */
+}
+
+.site-footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  text-decoration: none;
+  color: #111;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: background .18s ease;
+}
+.footer-nav a:hover {
+  background: rgba(0,0,0,.08);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.footer-left strong {
+  font-weight: 700;
+}
+
+.footer-right .sep {
+  opacity: .4;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .site-footer .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .footer-nav { justify-content: center; }
+}
+
+/* --- Espacio para footer fijo SOLO en pantallas pequeñas --- */
+main {
+  padding-bottom: 70px; /* base — espacio mínimo en desktop */
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 120px; /* más espacio en móvil, evita solapado */
+  }
+}
+
+/* --- Espacio extra solo para la galería --- */
+.gallery-content {
+  padding-bottom: 140px; /* espacio seguro para footer fijo en móvil */
+}
+
+@media (min-width: 769px) {
+  .gallery-content {
+    padding-bottom: 80px; /* menos espacio en desktop */
+  }
+}

@@ -116,7 +116,30 @@
 
 
 
+<footer class="site-footer fixed" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <strong>Pablo Assante</strong>
+      <span> · Director de coro & director de orquesta</span>
+    </div>
 
+    <nav class="footer-nav" aria-label="Enlaces de pie">
+      <a href="/contacto.html">Contacto</a>
+      <a href="mailto:info@tudominio.com" rel="noopener">Email</a>
+      <a href="https://www.instagram.com/pablo.assante/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+
+    <div class="footer-right">
+      <span>© <span id="year"></span> Pablo Assante</span>
+      <span class="sep">·</span>
+      <span>Barcelona</span>
+    </div>
+  </div>
+</footer>
+<script>
+  // Año automático
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 
 
