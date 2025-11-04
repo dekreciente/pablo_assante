@@ -298,7 +298,7 @@ nav ul li a:hover { color: #666; }
 /* ===== Agenda estilo listado minimal ===== */
 .agenda-content{
   max-width: 1500px;
-  margin: 120px auto 80px;
+  margin: 90px auto 80px;
   padding: 0 24px;
 }
 .agenda-wrap{
