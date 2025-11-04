@@ -727,6 +727,27 @@ html.page-leaving main {
   .footer-nav { justify-content: center; }
 }
 
+
+/* --- Footer simplificado en móviles --- */
+@media (max-width: 600px) {
+  .footer-left,
+  .footer-nav {
+    display: none; /* oculta los demás elementos */
+  }
+
+  .site-footer .footer-inner {
+    justify-content: center; /* centra el bloque © */
+    text-align: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 16px;
+  }
+
+  .footer-right {
+    font-size: 13px;
+  }
+}
+
 /* --- Espacio para footer fijo SOLO en pantallas pequeñas --- */
 main {
   padding-bottom: 70px; /* base — espacio mínimo en desktop */
