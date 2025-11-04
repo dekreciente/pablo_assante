@@ -632,4 +632,33 @@ a:hover { color: #666; }
 
 
 
+/* --- Page fade solo en el contenido (main) --- */
+html:not(.page-loaded) main {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+html.page-loaded main {
+  opacity: 1;
+  transform: none;
+  transition: opacity .9s ease, transform .9s ease; /* ajusta velocidad aquí */
+}
+
+/* Fade-out al navegar (solo contenido) */
+html.page-leaving main {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Respeto a reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:not(.page-loaded) main,
+  html.page-loaded main,
+  html.page-leaving main {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 

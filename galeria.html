@@ -227,5 +227,47 @@
 </script>
 
 
+<script>
+  (function () {
+    const html = document.documentElement;
+
+    // Lanzar fade-in del <main>
+    function markLoaded(){ html.classList.add('page-loaded'); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(markLoaded));
+    } else {
+      requestAnimationFrame(markLoaded);
+    }
+
+    // Fade-out al navegar a otra página interna (header se mantiene)
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+
+      const url = new URL(a.href, location.href);
+      const sameOrigin = url.origin === location.origin;
+      const newTab = a.target === '_blank' || a.hasAttribute('download');
+      const onlyHash = url.pathname === location.pathname && url.hash;
+
+      if (!sameOrigin || newTab || onlyHash) return;
+
+      e.preventDefault();
+      html.classList.add('page-leaving');
+
+      // Sincroniza con la duración de .page-leaving main (0.35s por defecto)
+      setTimeout(() => { location.href = a.href; }, 350);
+    });
+
+    // Compatibilidad bfcache (volver atrás/adelante)
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) {
+        html.classList.remove('page-leaving');
+        html.classList.add('page-loaded');
+      }
+    });
+  })();
+</script>
+
+
 </body>
 </html>
